@@ -5,14 +5,10 @@
   "description": "Keep Your Promises in TypeScript using async/await",
   "main": "index.js",
   "scripts": {
-    "build": "babel src/ -d dist/",
-    "flow": "flow"
+    "build": "tsc src/index.ts",
+    "start": "node src/index.js"
   },
   "author": "Palash Mondal",
   "license": "MIT",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-flow": "^6.23.0",
-    "flow-bin": "^0.75.0"
-  }
+  "devDependencies": {}
 }
