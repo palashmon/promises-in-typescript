@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "lib": ["es6", "dom"],
-    "outDir": "lib"
+    "outDir": "lib",
+    "module": "commonjs",
+    "removeComments": true,
+    "preserveConstEnums": true,
+    "sourceMap": true
   },
   "include": ["src"]
 }
