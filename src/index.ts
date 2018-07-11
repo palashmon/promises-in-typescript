@@ -1,20 +1,26 @@
-import { getHero } from './hero';
+import { external } from './external';
 
 /**
- * This function will have an array named handles containing the name of a couple of heroes
+ * A simple generator function
+ * This will return numbers one by one till 10
  */
-async function getHeroes() {
-  const heroes = ['superman', 'batman', 'flash'];
-
-  // Run more than one operations at a time, and wait for them all to resolve
-  const all = heroes.map(getHero);
-  const combine = Promise.all(all);
-  const details = await combine;
-  for (const hero of details) {
-    console.log(`
-Name: ${hero.name}
-Alias: ${hero.alias}
-  `);
+async function* numbers() {
+  let index = 1;
+  while (true) {
+    yield index;
+    index = await external(index);
+    if (index > 10) {
+      break;
+    }
   }
 }
-getHeroes();
+
+/**
+ * This function used to log the numbers
+ */
+async function getNumbers() {
+  for await (const num of numbers()) {
+    console.log(num);
+  }
+}
+getNumbers();

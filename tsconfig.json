@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "lib": ["es6", "dom"],
+    "lib": ["es6", "dom", "esnext.asynciterable"],
     "outDir": "lib",
     "module": "commonjs",
     "removeComments": true,
     "preserveConstEnums": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "downlevelIteration": true
   },
   "include": ["src"]
 }
