@@ -6,12 +6,15 @@ import { getHero } from './hero';
 async function getHeroes() {
   const heroes = ['superman', 'batman', 'flash'];
 
-  for (const handle of heroes) {
-    const hero = await getHero(handle);
+  // Run more than one operations at a time, and wait for them all to resolve
+  const all = heroes.map(getHero);
+  const combine = Promise.all(all);
+  const details = await combine;
+  for (const hero of details) {
     console.log(`
-  Name: ${hero.name}
-  Alias: ${hero.alias}
-    `);
+Name: ${hero.name}
+Alias: ${hero.alias}
+  `);
   }
 }
 getHeroes();
